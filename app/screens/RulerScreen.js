@@ -1,32 +1,39 @@
 import React from 'react';
-import {Button, Text, View} from 'react-native';
+import {Button, Text, View, TouchableHighlight} from 'react-native';
 import styled from "styled-components";
 
-const Container = styled.View`
-  background-color: snow;
+const Wrapper = styled.View`
   flex: 1;
   align-items: center;
-  justify-content: center;
+  background-color: steelblue;
 `;
 
-const StyledText = styled.Text`
-  margin: 20px;
+const ButtonWrapper = styled.TouchableHighlight`
+  width: 50;
+  height: 50;
+  border-radius: 50px;
+  margin: 50px;
+  background-color: powderblue;
 `;
 
-const StyledButton = styled.Button`
-  margin: 20px;
+const ViewContainer = styled.View`
+  flex: 1
 `;
 
 export default class RulerScreen extends React.Component {
   render() {
     return (
-      <Container>
-        <StyledButton
+      <Wrapper>
+        <ViewContainer>
+          <Text>lala</Text>
+        </ViewContainer>
+        <ButtonWrapper
           onPress={() => this.props.navigation.goBack()}
-          title="Back home"
           color='cadetblue'
-        />
-      </Container>
+        >
+          <View />
+        </ButtonWrapper>
+      </Wrapper>
     );
   }
 }

@@ -15,6 +15,8 @@ const RootStack = StackNavigator(
   },
   {
     initialRouteName: 'Home',
+    mode: 'modal',
+    headerMode: 'none',
   }
 );
 
