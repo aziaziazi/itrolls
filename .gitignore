@@ -5,6 +5,7 @@
 
 # dependencies
 /node_modules
+.lock
 
 # misc
 .env.local
