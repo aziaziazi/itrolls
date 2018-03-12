@@ -1,6 +1,8 @@
 import React from 'react';
-import {Button, Text, View, TouchableHighlight} from 'react-native';
 import styled from "styled-components";
+import {Button, Text, View, TouchableHighlight} from 'react-native';
+import { Dimensions } from 'react-native'
+import RNSensors from "react-native-sensors";
 
 const Wrapper = styled.View`
   flex: 1;
@@ -18,14 +20,18 @@ const ButtonWrapper = styled.TouchableHighlight`
 
 const ViewContainer = styled.View`
   flex: 1
+  justify-content: center;
 `;
 
-export default class RulerScreen extends React.Component {
+class RulerScreen extends React.Component {
   render() {
-    return (
+      const {width, height} = Dimensions.get('window');
+
+      return (
       <Wrapper>
         <ViewContainer>
-          <Text>lala</Text>
+            <Text>width => {width}</Text>
+            <Text>height => {height}</Text>
         </ViewContainer>
         <ButtonWrapper
           onPress={() => this.props.navigation.goBack()}
@@ -37,3 +43,9 @@ export default class RulerScreen extends React.Component {
     );
   }
 }
+
+export default RNSensors.decorator({
+    Accelerometer: true,
+    Gyroscope: true,
+    Magnetometer: true,
+})(RulerScreen);
